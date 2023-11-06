@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math javascript</title>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <form name="obj">
+        Сторона 1 <input type="text" size="8" maxlength="8" name="st1">
+        Сторона 2 <input type="text" size="8" maxlength="8" name="st2">
+        Сторона 3 <input type="text" size="8" maxlength="8" name="st3"><br><br>
+        <input type="button" value="Вычислить" onClick="areaOfTriangle(obj);">
+        <input type="reset" value="Отменить">
+        Результат1 <input type="text" size="8" maxlength="8" name="res1"><br><br>
+
+        min <input type="text" size="8" maxlength="8" name="min">
+        max <input type="text" size="8" maxlength="8" name="max"><br><br>
+        <input type="button" value="Вычислить" onClick="randomint(obj);">
+        <input type="reset" value="Отменить">
+        Результат2 <input type="text" size="8" maxlength="8" name="res2"><br><br>
+
+        x1 <input type="text" size="8" maxlength="8" name="x1">
+        x2 <input type="text" size="8" maxlength="8" name="x2">
+        x3 <input type="text" size="8" maxlength="8" name="x3"><br><br>
+        <input type="button" value="Вычислить" onClick="kv(obj);">
+        <script>
+            function kv(obj){
+                
+                let a = obj.x1.value,
+                b = obj.x2.value,
+                c = obj.x3.value,
+                arr = kvur(a, b, c),
+                d = arr[0];
+            document.write("Дискриминант: " + d);
+            document.write(
+                d < 0
+                    ? "Корней нет"
+                    : d === 0
+                        ? "Один корень: " + arr[1]
+                        : `Два корня: ${arr[1]} и ${arr[2]}`
+            );
+     
+          
+            function kvur(a, b, c) {
+                let discr = (a, b, c) => b * b - 4 * a * c;
+
+                let d = discr(a, b, c);
+                if (d < 0) return [d];
+     
+                let x1 = (-b + Math.sqrt(d)) / (2 * a),
+                    x2 = (-b - Math.sqrt(d)) / (2 * a);
+     
+                return [d, x1, x2];
+            }
+        }
+            
+     
+        </script>
+    </form>
+</body>
+
+</html>
+
+</body>
+
+</html>
